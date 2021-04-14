@@ -1,6 +1,14 @@
 import React from "react"
 
 function TodoItem(props) {
+
+    const completedStyle = {
+        fontStyle: "italic",
+        color: "#cdcdcd",
+        textDecoration: "line-through"
+    }
+
+
     return (
         // anytime a checkbox is checked it calls onChange which is receiving the event object; which calls handleChange() and passes this item's id
         <div className="todo-item">
@@ -9,7 +17,7 @@ function TodoItem(props) {
                 checked={props.item.completed}
                 onChange={(event) => props.handleChange(props.item.id)} />
 
-            <p>{props.item.text}</p>
+            <p style={props.item.completed ? completedStyle : null}>{props.item.text}</p>
         </div>
     )
 }
